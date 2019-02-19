@@ -1,4 +1,0 @@
-"SongA","ArtistA","AlbumA","YearA"
-"SongB","ArtistB","AlbumB","YearB"
-"SongC","ArtistC","AlbumC","YearC"
-"SongD","ArtistD","AlbumD","YearD"
