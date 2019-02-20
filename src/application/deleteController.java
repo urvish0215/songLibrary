@@ -19,6 +19,7 @@ public class deleteController {
         Parent root = mainFXMLLoader.load();
 		Scene mainPage = new Scene(root);
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setTitle("Song Library");
 		window.setScene(mainPage);
 	}
 	
@@ -41,6 +42,7 @@ public class deleteController {
 		mainControl.update_selection_after_delete(selectedPosition);
 		
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setTitle("Song Library");
 	    window.setScene(mainPage);
 		
 	}

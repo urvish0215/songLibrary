@@ -37,6 +37,7 @@ public class editController {
         Parent root = mainFXMLLoader.load();
 		Scene mainPage = new Scene(root);
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setTitle("Song Library");
 		window.setScene(mainPage);
 	}
 	
@@ -56,6 +57,7 @@ public class editController {
 			mainControl.update_selection_after_edit_add(newSong);
 			
 	        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+	        window.setTitle("Song Library");
 		    window.setScene(mainPage);
 		}else if(exists == true){
 			error_message.setText("Error. Song already Exist.");

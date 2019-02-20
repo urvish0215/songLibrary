@@ -68,6 +68,7 @@ public class mainController {
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		addController addControl = addFXMLLoader.getController();
 		addControl.initList(songArray);
+		window.setTitle("Add a Song to Library");
 		window.setScene(addPage);
 	}
 	
@@ -81,6 +82,7 @@ public class mainController {
         editControl.passSelectedSong(selectedSong, songArray);
         
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setTitle("Edit Song");
 		window.setScene(editPage);
 	}
 	
@@ -94,6 +96,7 @@ public class mainController {
         deleteControl.passSelectedSong(selectedSong, songArray);
         
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setTitle("Delete Song");
 		window.setScene(editPage);
 	}
 	

@@ -16,6 +16,7 @@ public class SongLib extends Application {
 		//Main Page
 		FXMLLoader mainFXMLLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
         Scene mainPage = new Scene(mainFXMLLoader.load());
+        window.setTitle("Song Library");
 	    window.setScene(mainPage);
 	    window.show();
 	}
