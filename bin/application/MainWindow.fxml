@@ -41,5 +41,6 @@
       <Label fx:id="artist" layoutX="117.0" layoutY="281.0" />
       <Label fx:id="album" layoutX="117.0" layoutY="298.0" />
       <Label fx:id="year" layoutX="117.0" layoutY="315.0" />
+      <Label fx:id="error_message" layoutX="222.0" layoutY="332.0" />
    </children>
 </AnchorPane>

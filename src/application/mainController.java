@@ -19,13 +19,14 @@ import javafx.stage.Stage;
 public class mainController {
 	
 	@FXML ListView<Song> lView;
-	@FXML private ListCell<String> Song_titles;
 	private ArrayList<Song> songArray = new ArrayList<>();
 	
 	@FXML private Label title;
 	@FXML private Label artist;
 	@FXML private Label album;
 	@FXML private Label year;
+	
+	@FXML private Label error_message;
 	
 	public void initialize() throws IOException {
 		File file;
@@ -73,31 +74,39 @@ public class mainController {
 	}
 	
 	public void open_editPage(ActionEvent event) throws Exception {
-		Song selectedSong = (Song) lView.getSelectionModel().getSelectedItem();
-		
-		FXMLLoader editFXMLLoader = new FXMLLoader(getClass().getResource("editWindow.fxml"));
-        Scene editPage = new Scene(editFXMLLoader.load()); 
-        
-        editController editControl = editFXMLLoader.getController();
-        editControl.passSelectedSong(selectedSong, songArray);
-        
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setTitle("Edit Song");
-		window.setScene(editPage);
+		if(lView.getItems().isEmpty()) {
+			error_message.setText("Error, No songs in library");
+		}else {
+			Song selectedSong = (Song) lView.getSelectionModel().getSelectedItem();
+			
+			FXMLLoader editFXMLLoader = new FXMLLoader(getClass().getResource("editWindow.fxml"));
+	        Scene editPage = new Scene(editFXMLLoader.load()); 
+	        
+	        editController editControl = editFXMLLoader.getController();
+	        editControl.passSelectedSong(selectedSong, songArray);
+	        
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setTitle("Edit Song");
+			window.setScene(editPage);
+		}
 	}
 	
 	public void open_deletePage(ActionEvent event) throws Exception {
-		Song selectedSong = (Song) lView.getSelectionModel().getSelectedItem();
-		
-		FXMLLoader deleteFXMLLoader = new FXMLLoader(getClass().getResource("deleteWindow.fxml"));
-        Scene editPage = new Scene(deleteFXMLLoader.load()); 
-        
-        deleteController deleteControl = deleteFXMLLoader.getController();
-        deleteControl.passSelectedSong(selectedSong, songArray);
-        
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setTitle("Delete Song");
-		window.setScene(editPage);
+		if(lView.getItems().isEmpty()) {
+			error_message.setText("Error, No songs in library");
+		}else {
+			Song selectedSong = (Song) lView.getSelectionModel().getSelectedItem();
+			
+			FXMLLoader deleteFXMLLoader = new FXMLLoader(getClass().getResource("deleteWindow.fxml"));
+	        Scene editPage = new Scene(deleteFXMLLoader.load()); 
+	        
+	        deleteController deleteControl = deleteFXMLLoader.getController();
+	        deleteControl.passSelectedSong(selectedSong, songArray);
+	        
+			Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+			window.setTitle("Delete Song");
+			window.setScene(editPage);
+		}
 	}
 	
 	public void exit_program(ActionEvent event) throws Exception {
