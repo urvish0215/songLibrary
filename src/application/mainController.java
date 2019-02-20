@@ -45,9 +45,25 @@ public class mainController {
 		}
 	    Collections.sort(songArray, Song.songTitleComparator);
 	    lView.getItems().addAll(songArray);
-	    lView.getSelectionModel().select(0);   
+	    
+	    if(lView.getItems().isEmpty() == false) {
+	    
+		    lView.getSelectionModel().select(0);
+		    Song s = (Song) lView.getSelectionModel().getSelectedItem();
+		    title.setText(s.getTitle());
+		    artist.setText(s.getArtist());
+		    album.setText(s.getAlbum());
+		    year.setText(s.getYear());
+	    }
 	    t.close();
 		
+	}
+	public void update_selection() {
+		Song s = (Song) lView.getSelectionModel().getSelectedItem();
+	    title.setText(s.getTitle());
+	    artist.setText(s.getArtist());
+	    album.setText(s.getAlbum());
+	    year.setText(s.getYear());
 	}
 	
 	public void open_addPage(ActionEvent event) throws Exception {
@@ -103,6 +119,21 @@ public class mainController {
 		lView.getItems().addAll(songArray);
 		
 	    lView.refresh();
+	    
+	    if(lView.getItems().isEmpty() == false) {
+		    
+		    lView.getSelectionModel().select(0);
+		    Song s = (Song) lView.getSelectionModel().getSelectedItem();
+		    title.setText(s.getTitle());
+		    artist.setText(s.getArtist());
+		    album.setText(s.getAlbum());
+		    year.setText(s.getYear());
+	    }else {
+	    	title.setText("");
+		    artist.setText("");
+		    album.setText("");
+		    year.setText("");
+	    }
 		
 
 		fileWriter.close();
