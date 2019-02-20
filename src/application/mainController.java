@@ -1,6 +1,8 @@
 package application;
 
 import java.io.*;
+import java.net.URL;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -23,13 +25,10 @@ public class mainController {
 	
 	public void initialize() throws IOException {
 		File file;
-		try {
-			file = new File("C:\\Users\\Urvish\\git\\songLib\\src\\application\\Songfile.txt");
-		}
-		catch(Exception e){
-			Writer fileWriter = new FileWriter("C:\\Users\\Urvish\\git\\songLib\\src\\application\\Songfile.txt");
-			file = new File("C:\\Users\\Urvish\\git\\songLib\\src\\application\\Songfile.txt");
-		}
+		String path = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\application\\Songfile.txt";
+		file = new File(path);
+		file.createNewFile();
+		
 		Scanner t = new Scanner(file); 
 		 
 	    while (t.hasNextLine()) {
@@ -84,8 +83,8 @@ public class mainController {
 	
 	public void updateList(ArrayList<Song> songArray) throws IOException {
 		this.songArray = songArray;
-		
-		Writer fileWriter = new FileWriter("C:\\Users\\Urvish\\git\\songLib\\src\\application\\Songfile.txt");
+		String path = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\application\\Songfile.txt";
+		Writer fileWriter = new FileWriter(path);
 
 		for (Song s : songArray) {
 			fileWriter.write(s.printToFileString());
