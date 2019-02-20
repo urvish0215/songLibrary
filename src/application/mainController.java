@@ -59,7 +59,7 @@ public class mainController {
 	    t.close();
 		
 	}
-	public void update_selection() {
+	public void update_selection_after_clicks() {
 		Song s = (Song) lView.getSelectionModel().getSelectedItem();
 	    title.setText(s.getTitle());
 	    artist.setText(s.getArtist());
@@ -147,5 +147,16 @@ public class mainController {
 	    artist.setText(s.getArtist());
 	    album.setText(s.getAlbum());
 	    year.setText(s.getYear());
+	}
+	
+	public void update_selection_after_delete(int selectedPosition) {
+		if(selectedPosition >= 0) {
+			lView.getSelectionModel().select(selectedPosition);
+		    Song s = (Song) lView.getSelectionModel().getSelectedItem();
+		    title.setText(s.getTitle());
+		    artist.setText(s.getArtist());
+		    album.setText(s.getAlbum());
+		    year.setText(s.getYear());
+		}
 	}
 }

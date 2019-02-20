@@ -20,7 +20,7 @@
             </Label>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <ListView fx:id="lView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#update_selection" prefHeight="197.0" prefWidth="518.0" />
+                  <ListView fx:id="lView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#update_selection_after_clicks" prefHeight="197.0" prefWidth="518.0" />
                </children>
             </StackPane>
          </children>

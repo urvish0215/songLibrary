@@ -23,7 +23,12 @@ public class deleteController {
 	}
 	
 	public void confirm_open_mainPage(ActionEvent event) throws IOException {
-		int position = songList.indexOf(selectedSong);
+		int selectedPosition = songList.indexOf(selectedSong);
+		int listLength = songList.size();
+		
+		if(selectedPosition == listLength-1) {
+			selectedPosition = selectedPosition - 1;
+		}
 		
 		songList.remove(selectedSong);
 		
@@ -33,6 +38,7 @@ public class deleteController {
 		
 		mainController mainControl = mainFXMLLoader.getController();
 		mainControl.updateList(songList);
+		mainControl.update_selection_after_delete(selectedPosition);
 		
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 	    window.setScene(mainPage);
