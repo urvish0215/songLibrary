@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.addController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.addController">
    <top>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Song" BorderPane.alignment="CENTER">
          <font>
@@ -27,13 +27,13 @@
       <VBox prefHeight="290.0" prefWidth="556.0" BorderPane.alignment="CENTER">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Song Title" />
-            <TextField />
+            <TextField fx:id="title" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Artist" />
-            <TextField />
+            <TextField fx:id="artist" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Albumn" />
-            <TextField />
+            <TextField fx:id="album" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
-            <TextField />
+            <TextField fx:id="year" />
          </children>
       </VBox>
    </center>

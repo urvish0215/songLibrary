@@ -13,6 +13,36 @@ public class Song {
 		this.year = year;
 	}
 	
+	public Song(String line) {
+		int startPos=1;
+		int endPos=0;
+		
+		endPos = line.indexOf("\",\"", endPos+1);
+		this.title = line.substring(startPos, endPos);
+		
+		startPos = endPos + 3;
+		endPos = line.indexOf("\",\"", endPos+1);
+		this.artist = line.substring(startPos, endPos);
+		
+		startPos = endPos + 3;
+		endPos = line.indexOf("\",\"", endPos+1);
+		this.album = line.substring(startPos, endPos);
+		
+		startPos = endPos + 3;
+		endPos = line.indexOf("\"", endPos+3);
+		this.year = line.substring(startPos, endPos);
+		
+	}
+	
+	public String toString() {
+		return this.title + " by " + this.artist + " in Album: " + this.album + " released in Year " + this.year;
+	}
+	
+	public String printToFileString() {
+		String s = "\"" + this.title + "\",\"" + this.artist + "\",\"" + this.album + "\",\"" + this.year + "\"\n";
+		return s;
+	}
+	
 	public String getTitle() {
 		return this.title;
 	}
