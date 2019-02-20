@@ -28,7 +28,7 @@
       <VBox prefHeight="290.0" prefWidth="556.0" BorderPane.alignment="CENTER">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Song Name" />
-            <TextField fx:id="name" />
+            <TextField fx:id="title" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Artist" />
             <TextField fx:id="artist" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Albumn" />
