@@ -1,5 +1,0 @@
-"f","dasfads","dsfasdaf","f"
-"SA","AuthorA","",""
-"TestA","AuthorA","",""
-"TestA","AuthorC","",""
-"TestA","AuthorD","",""
