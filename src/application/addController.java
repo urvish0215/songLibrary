@@ -18,7 +18,7 @@ public class addController {
 	@FXML private TextField artist;
 	@FXML private TextField album;
 	@FXML private TextField year;
-	@FXML private Label duplicate_error_message;
+	@FXML private Label error_message;
 	private ArrayList<Song> songList = new ArrayList<>();
 	
 	public void initList(ArrayList<Song> songList) {
@@ -51,7 +51,7 @@ public class addController {
 		    window.setScene(mainPage);
 		}
 		else {
-			duplicate_error_message.setText("Error. Song already Exist.");
+			error_message.setText("Error. Song already Exist.");
 		}
 	}
 	

@@ -36,7 +36,7 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year" />
             <TextField fx:id="year" />
             <Region prefHeight="200.0" prefWidth="200.0" />
-            <Label fx:id="duplicate_error_message" prefHeight="31.0" prefWidth="554.0" />
+            <Label fx:id="error_message" prefHeight="31.0" prefWidth="554.0" />
          </children>
       </VBox>
    </center>

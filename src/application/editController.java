@@ -19,7 +19,7 @@ public class editController {
 	@FXML private TextField artist;
 	@FXML private TextField album;
 	@FXML private TextField year;
-	@FXML private Label duplicate_error_message;
+	@FXML private Label error_message;
 	private ArrayList<Song> songList = new ArrayList<>();
 	
 	public void passSelectedSong(Song selectedSong, ArrayList<Song> songList) {
@@ -58,7 +58,7 @@ public class editController {
 	        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    window.setScene(mainPage);
 		}else {
-			duplicate_error_message.setText("Error. Song already Exist.");
+			error_message.setText("Error. Song already Exist.");
 		}
 	}
 	
