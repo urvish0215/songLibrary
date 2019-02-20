@@ -138,7 +138,7 @@ public class mainController {
 		fileWriter.close();
 	}
 	
-	public void updateSelection(Song selectedSong) {
+	public void update_selection_after_edit_add(Song selectedSong) {
 		int newSelection = songArray.indexOf(selectedSong);
 		
 		lView.getSelectionModel().select(newSelection);

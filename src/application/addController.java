@@ -45,7 +45,7 @@ public class addController {
 			
 			mainController mainControl = mainFXMLLoader.getController();
 			mainControl.updateList(songList);
-			mainControl.updateSelection(newSong);
+			mainControl.update_selection_after_edit_add(newSong);
 			
 	        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    window.setScene(mainPage);

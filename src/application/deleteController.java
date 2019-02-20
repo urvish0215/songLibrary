@@ -23,6 +23,8 @@ public class deleteController {
 	}
 	
 	public void confirm_open_mainPage(ActionEvent event) throws IOException {
+		int position = songList.indexOf(selectedSong);
+		
 		songList.remove(selectedSong);
 		
 		FXMLLoader mainFXMLLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
