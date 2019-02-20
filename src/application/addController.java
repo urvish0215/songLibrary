@@ -34,8 +34,9 @@ public class addController {
 	}
 	
 	public void confirm_open_mainPage(ActionEvent event) throws Exception {
+		// checking if song already exist checking mandatory field song title and artist
 		boolean exists = checkIfSongExists();
-		if(exists == false){
+		if(exists == false && title.getText().length()>0 && artist.getText().length()>0){
 			Song newSong = new Song(title.getText(),artist.getText(),album.getText(),year.getText());
 			songList.add(newSong);
 			
@@ -50,8 +51,10 @@ public class addController {
 	        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    window.setScene(mainPage);
 		}
-		else {
+		else if(exists == true){
 			error_message.setText("Error. Song already Exist.");
+		}else {
+			error_message.setText("Both Song title and artist required");
 		}
 	}
 	
