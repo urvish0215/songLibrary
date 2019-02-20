@@ -4,6 +4,8 @@ import java.io.*;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -12,16 +14,22 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class mainController {
 	
-	@FXML ListView L;
+	@FXML ListView lView;
 	@FXML private ListCell<String> Song_titles;
 	private ArrayList<Song> songArray = new ArrayList<>();
 	
+	@FXML private Label title;
+	@FXML private Label artist;
+	@FXML private Label album;
+	@FXML private Label year;
 	
 	public void initialize() throws IOException {
 		File file;
@@ -34,9 +42,10 @@ public class mainController {
 	    while (t.hasNextLine()) {
 	    	Song newSong = new Song(t.nextLine());
 	    	songArray.add(newSong);
-	    	L.getItems().add(newSong);
 		}
-	    L.setEditable(true);    
+	    Collections.sort(songArray, Song.songTitleComparator);
+	    lView.getItems().addAll(songArray);
+	    lView.getSelectionModel().select(0);   
 	    t.close();
 		
 	}
@@ -51,7 +60,7 @@ public class mainController {
 	}
 	
 	public void open_editPage(ActionEvent event) throws Exception {
-		Song selectedSong = (Song) L.getSelectionModel().getSelectedItem();
+		Song selectedSong = (Song) lView.getSelectionModel().getSelectedItem();
 		
 		FXMLLoader editFXMLLoader = new FXMLLoader(getClass().getResource("editWindow.fxml"));
         Scene editPage = new Scene(editFXMLLoader.load()); 
@@ -64,7 +73,7 @@ public class mainController {
 	}
 	
 	public void open_deletePage(ActionEvent event) throws Exception {
-		Song selectedSong = (Song) L.getSelectionModel().getSelectedItem();
+		Song selectedSong = (Song) lView.getSelectionModel().getSelectedItem();
 		
 		FXMLLoader deleteFXMLLoader = new FXMLLoader(getClass().getResource("deleteWindow.fxml"));
         Scene editPage = new Scene(deleteFXMLLoader.load()); 
@@ -83,16 +92,17 @@ public class mainController {
 	
 	public void updateList(ArrayList<Song> songArray) throws IOException {
 		this.songArray = songArray;
+		Collections.sort(songArray, Song.songTitleComparator);
 		String path = Paths.get(".").toAbsolutePath().normalize().toString() + "\\src\\application\\Songfile.txt";
 		Writer fileWriter = new FileWriter(path);
 
 		for (Song s : songArray) {
 			fileWriter.write(s.printToFileString());
 		}
-		this.L.getItems().clear();
-		this.L.getItems().addAll(songArray);
+		lView.getItems().clear();
+		lView.getItems().addAll(songArray);
 		
-	    this.L.refresh();
+	    lView.refresh();
 		
 
 		fileWriter.close();

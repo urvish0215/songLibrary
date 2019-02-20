@@ -1,5 +1,9 @@
 package application;
 
+import java.util.Comparator;
+
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
+
 public class Song {
 	private String title;
 	private String artist;
@@ -35,7 +39,7 @@ public class Song {
 	}
 	
 	public String toString() {
-		return this.title + " by " + this.artist + " in Album: " + this.album + " released in Year " + this.year;
+		return this.title + " by " + this.artist;
 	}
 	
 	public String printToFileString() {
@@ -74,5 +78,12 @@ public class Song {
 	public void setYear(String year) {
 		this.year = year;
 	}
+	
+	public static Comparator<Song> songTitleComparator = new Comparator<Song>() {
+		
+		public int compare(Song a, Song b) {
+			return a.getTitle().compareTo(b.getTitle());
+		}
+	};
 
 }

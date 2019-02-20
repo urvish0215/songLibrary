@@ -20,12 +20,12 @@
             </Label>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <ListView fx:id="L" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="518.0" />
+                  <ListView fx:id="lView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="518.0" />
                </children>
             </StackPane>
          </children>
       </VBox>
-      <ButtonBar layoutX="7.0" layoutY="339.0" prefHeight="40.0" prefWidth="574.0">
+      <ButtonBar layoutX="6.0" layoutY="354.0" prefHeight="40.0" prefWidth="574.0">
         <buttons>
           <Button mnemonicParsing="false" onAction="#open_addPage" text="Add" />
             <Button mnemonicParsing="false" onAction="#open_deletePage" text="Delete" />
@@ -33,5 +33,13 @@
             <Button mnemonicParsing="false" onAction="#exit_program" text="Close Program" />
         </buttons>
       </ButtonBar>
+      <Label layoutX="45.0" layoutY="264.0" text="Title" />
+      <Label layoutX="46.0" layoutY="315.0" text="Year" />
+      <Label layoutX="45.0" layoutY="281.0" text="Artist" />
+      <Label layoutX="45.0" layoutY="298.0" text="Album" />
+      <Label fx:id="title" layoutX="117.0" layoutY="264.0" text="Label" />
+      <Label fx:id="artist" layoutX="117.0" layoutY="281.0" text="Label" />
+      <Label fx:id="album" layoutX="117.0" layoutY="298.0" text="Label" />
+      <Label fx:id="year" layoutX="117.0" layoutY="315.0" text="Label" />
    </children>
 </AnchorPane>
