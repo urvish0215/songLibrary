@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 
-public class Main extends Application {
+public class SongLib extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Stage window = primaryStage;
