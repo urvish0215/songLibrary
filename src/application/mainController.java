@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -134,8 +135,17 @@ public class mainController {
 		    album.setText("");
 		    year.setText("");
 	    }
-		
-
 		fileWriter.close();
+	}
+	
+	public void updateSelection(Song selectedSong) {
+		int newSelection = songArray.indexOf(selectedSong);
+		
+		lView.getSelectionModel().select(newSelection);
+	    Song s = (Song) lView.getSelectionModel().getSelectedItem();
+	    title.setText(s.getTitle());
+	    artist.setText(s.getArtist());
+	    album.setText(s.getAlbum());
+	    year.setText(s.getYear());
 	}
 }

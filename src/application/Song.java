@@ -79,10 +79,32 @@ public class Song {
 		this.year = year;
 	}
 	
+	public boolean equals(Song x) {
+		if(x.getTitle().compareToIgnoreCase(this.title) != 0) {
+			return false;
+		}else if(x.getArtist().compareToIgnoreCase(this.artist) != 0) {
+			return false;
+		}else if(x.getAlbum().compareToIgnoreCase(this.album) != 0) {
+			return false;
+		}else if(x.getYear().compareToIgnoreCase(this.year) != 0){
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	public boolean isDuplicate(String title, String artist) {
+		if(title.compareToIgnoreCase(this.title) == 0 && artist.compareToIgnoreCase(this.artist) == 0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	public static Comparator<Song> songTitleComparator = new Comparator<Song>() {
 		
 		public int compare(Song a, Song b) {
-			return a.getTitle().compareTo(b.getTitle());
+			return a.getTitle().compareToIgnoreCase(b.getTitle());
 		}
 	};
 
