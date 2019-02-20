@@ -1,14 +1,10 @@
 package application;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Scanner;
-import java.util.function.Predicate;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,12 +14,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class mainController {
 	
-	@FXML ListView lView;
+	@FXML ListView<Song> lView;
 	@FXML private ListCell<String> Song_titles;
 	private ArrayList<Song> songArray = new ArrayList<>();
 	

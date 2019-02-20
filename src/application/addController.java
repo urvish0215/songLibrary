@@ -50,8 +50,7 @@ public class addController {
 			
 	        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		    window.setScene(mainPage);
-		}
-		else if(exists == true){
+		}else if(exists == true){
 			error_message.setText("Error. Song already Exist.");
 		}else {
 			error_message.setText("Both Song title and artist required");

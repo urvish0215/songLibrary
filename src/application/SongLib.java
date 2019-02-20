@@ -1,6 +1,7 @@
 package application;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -10,6 +11,7 @@ public class SongLib extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Stage window = primaryStage;
+		window.setOnCloseRequest(e -> Platform.exit());
 		
 		//Main Page
 		FXMLLoader mainFXMLLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
