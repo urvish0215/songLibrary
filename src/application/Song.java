@@ -104,7 +104,11 @@ public class Song {
 	public static Comparator<Song> songTitleComparator = new Comparator<Song>() {
 		
 		public int compare(Song a, Song b) {
-			return a.getTitle().compareToIgnoreCase(b.getTitle());
+			if(a.getTitle().compareToIgnoreCase(b.getTitle()) == 0) {
+				return a.getArtist().compareToIgnoreCase(b.getArtist());
+			}else {
+				return a.getTitle().compareToIgnoreCase(b.getTitle());
+			}
 		}
 	};
 
